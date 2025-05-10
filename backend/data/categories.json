@@ -1,0 +1,27 @@
+[
+  {
+    "id": "default",
+    "name": "Ostatní",
+    "color": "#999999"
+  },
+  {
+    "id": "138b515b-aa19-4be5-b563-93a5c1838d78",
+    "name": "Škola",
+    "color": "#00ccff"
+  },
+  {
+    "id": "4e3ef729-6fa8-4cc0-8b74-05fe7d09c732",
+    "name": "Domácnost",
+    "color": "#ff9900"
+  },
+  {
+    "id": "1377b8b8-e800-4dd8-8031-4847631dbe92",
+    "name": "Test",
+    "color": "#4e1d1d"
+  },
+  {
+    "id": "f767030c-eddb-453a-bc99-45ffef3478ea",
+    "name": "Test d",
+    "color": "#28af31"
+  }
+]

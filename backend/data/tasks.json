@@ -1,0 +1,92 @@
+[
+  {
+    "id": "a436a2e5-4063-4a50-a374-1389b08d5879",
+    "title": "Napsat prezentaci",
+    "description": "Slidy na obhajobu projektu",
+    "dueDate": "2025-05-15",
+    "priority": "Vysoká",
+    "status": "Aktivní",
+    "categoryId": "default"
+  },
+  {
+    "id": "8cd93f1f-d1fe-414a-87fe-5683deda53ed",
+    "title": "Test 2 ",
+    "description": "Nějaký popis",
+    "dueDate": "2025-06-07",
+    "priority": "Nízká",
+    "status": "Aktivní",
+    "categoryId": "4e3ef729-6fa8-4cc0-8b74-05fe7d09c732"
+  },
+  {
+    "id": "22e52657-24d6-4ba4-887a-3d1dbfd529ed",
+    "title": "test",
+    "description": "",
+    "dueDate": "2025-05-24",
+    "priority": "Střední",
+    "status": "Aktivní",
+    "categoryId": "default"
+  },
+  {
+    "id": "e3036009-a74e-47ef-bd66-64b465a47ccb",
+    "title": "test 2",
+    "description": "",
+    "dueDate": "2025-04-28",
+    "priority": "Nízká",
+    "status": "Hotovo",
+    "categoryId": "f767030c-eddb-453a-bc99-45ffef3478ea"
+  },
+  {
+    "id": "b50c8ae2-7ad2-4665-aac6-0eedf807d124",
+    "title": "test 3",
+    "description": "sdfsdfsdf",
+    "dueDate": "2025-06-08",
+    "priority": "Vysoká",
+    "status": "Aktivní",
+    "categoryId": "4e3ef729-6fa8-4cc0-8b74-05fe7d09c732"
+  },
+  {
+    "id": "5dbb222d-69c1-42fc-a267-a82b99731d1b",
+    "title": "ztretert",
+    "description": "ertertert",
+    "dueDate": "2025-06-08",
+    "priority": "Střední",
+    "status": "Aktivní",
+    "categoryId": "138b515b-aa19-4be5-b563-93a5c1838d78"
+  },
+  {
+    "id": "3c41a5f9-f95c-49da-868c-1b647451ad1e",
+    "title": "test kategorie",
+    "description": "test",
+    "dueDate": "2025-05-15",
+    "priority": "Střední",
+    "status": "Aktivní",
+    "categoryId": "138b515b-aa19-4be5-b563-93a5c1838d78"
+  },
+  {
+    "id": "8171d096-d3df-4d72-ac46-a95d92b81405",
+    "title": "Test novy ukol",
+    "description": "test popis",
+    "dueDate": "2025-05-08",
+    "priority": "Vysoká",
+    "status": "Aktivní",
+    "categoryId": "4e3ef729-6fa8-4cc0-8b74-05fe7d09c732"
+  },
+  {
+    "id": "af8ea737-5bbb-4597-9b69-db19286c1abc",
+    "title": "?gg",
+    "description": "",
+    "dueDate": "2025-05-09",
+    "priority": "Střední",
+    "status": "Hotovo",
+    "categoryId": "default"
+  },
+  {
+    "id": "3cc42a08-1648-4bc7-bb19-d23336a7e1e0",
+    "title": "klkl",
+    "description": "",
+    "dueDate": "2025-05-03",
+    "priority": "Střední",
+    "status": "Aktivní",
+    "categoryId": "1377b8b8-e800-4dd8-8031-4847631dbe92"
+  }
+]
