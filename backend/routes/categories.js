@@ -60,7 +60,7 @@ router.put('/:id', async (req, res) => {
   res.json(categories[index]);
 });
 
-// ✅ Smazání kategorie + mazání souvisejících úkolů
+// Smazání kategorie + mazání souvisejících úkolů
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   if (id === 'default') return res.status(400).send('Defaultní kategorii nelze smazat');
