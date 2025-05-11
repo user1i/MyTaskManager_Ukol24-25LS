@@ -6,13 +6,13 @@ const { v4: uuidv4 } = require('uuid');
 const TASKS_FILE = 'tasks.json';
 const CATEGORIES_FILE = 'categories.json';
 
-// Načíst všechny kategorie
+// GET/ Načíst všechny kategorie
 router.get('/', async (req, res) => {
   const categories = await readData(CATEGORIES_FILE);
   res.json(categories);
 });
 
-// Přidat novou kategorii
+// POST/ Přidat novou kategorii
 router.post('/', async (req, res) => {
   const { name, color } = req.body;
 
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
   res.status(201).json(newCategory);
 });
 
-// Editace kategorie
+// PUT/ Editace kategorie
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, color } = req.body;
@@ -60,7 +60,7 @@ router.put('/:id', async (req, res) => {
   res.json(categories[index]);
 });
 
-// Smazání kategorie + mazání souvisejících úkolů
+// DELETE/ Smazání kategorie + mazání souvisejících úkolů
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   if (id === 'default') return res.status(400).send('Defaultní kategorii nelze smazat');
