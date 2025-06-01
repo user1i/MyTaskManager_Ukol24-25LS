@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import CategoryFormModal from '../components/CategoryFormModal';
 
 export default function Categories() {
-  const [categories, setCategories] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]); // Stav pro seznam kategorií
+  const [showModal, setShowModal] = useState(false); // Zda se má zobrazit modální okno
+  const [selectedCategory, setSelectedCategory] = useState(null); // Aktuálně vybraná kategorie
+  const [error, setError] = useState(null);  // Chybová zpráva
+  const [loading, setLoading] = useState(true); // Indikátor načítání dat
 
+  // Načtení kategorií z backendu při prvním zobrazení stránky
   const fetchCategories = async () => {
     try {
       const res = await fetch('http://localhost:3001/categories');
@@ -25,24 +26,29 @@ export default function Categories() {
     fetchCategories();
   }, []);
 
+  // Funkce pro uložení nové nebo upravené kategorie
   const handleCategorySaved = (category) => {
     if (selectedCategory) {
+      // Úprava existující kategorie
       setCategories(prev =>
         prev.map(c => (c.id === category.id ? category : c))
       );
     } else {
+      // Přidání nové kategorie
       setCategories(prev => [...prev, category]);
     }
     setShowModal(false);
     setSelectedCategory(null);
   };
 
+// Funkce pro mazání kategorie
   const handleDelete = async (id) => {
     if (id === 'default') {
       alert('Výchozí kategorii nelze smazat.');
       return;
     }
 
+    // Potvrzení od uživatele + upozornění na smazání úkolů
     if (window.confirm('⚠️ Pozor: Smazáním této kategorie dojde také ke smazání všech úkolů, které do ní patří. Chcete pokračovat?')) {
       const res = await fetch(`http://localhost:3001/categories/${id}`, {
         method: 'DELETE'
@@ -55,8 +61,10 @@ export default function Categories() {
     }
   };
 
+  // Renderování hlavní části stránky
   return (
     <div className="container">
+      {/* Hlavička stránky a tlačítko pro přidání nové kategorie */}
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2>Správa kategorií</h2>
         <button className="btn btn-success" onClick={() => setShowModal(true)}>
@@ -64,10 +72,11 @@ export default function Categories() {
           Nová kategorie
         </button>
       </div>
-
+      {/* Zprávy o načítání nebo chybách */}
       {loading && <p>Načítání kategorií...</p>}
       {error && <div className="alert alert-danger">Chyba: {error}</div>}
 
+      {/* Zobrazení seznamu kategorií */}
       {!loading && !error && categories.length === 0 && (
         <p>Žádné kategorie k zobrazení.</p>
       )}
@@ -77,6 +86,7 @@ export default function Categories() {
           {categories.map(c => (
             <li key={c.id} className="list-group-item d-flex justify-content-between align-items-center">
               <div>
+                {/* Barevný čtvereček s názvem kategorie */}
                 <span
                   className="me-2"
                   style={{
@@ -90,6 +100,7 @@ export default function Categories() {
                 {c.name}
               </div>
               <div>
+                {/* Tlačítko pro úpravu */}
                 <button
                   className="btn btn-sm btn-outline-primary me-2"
                   onClick={() => {
@@ -99,6 +110,7 @@ export default function Categories() {
                 >
                   <i className="bi bi-pencil"></i>
                 </button>
+                {/* Tlačítko pro smazání (pokud není výchozí kategorie) */}
                 {c.id !== 'default' && (
                   <button
                     className="btn btn-sm btn-outline-danger"
@@ -113,6 +125,7 @@ export default function Categories() {
         </ul>
       )}
 
+      {/* Modální okno pro přidání nebo úpravu kategorie */}
       <CategoryFormModal
         show={showModal}
         onClose={() => {

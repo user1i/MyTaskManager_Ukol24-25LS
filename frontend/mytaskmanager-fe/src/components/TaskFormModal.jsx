@@ -20,6 +20,7 @@ export default function TaskFormModal({
 
   const [errors, setErrors] = useState({});
 
+  // Nastavení výchozích hodnot formuláře při otevření
   useEffect(() => {
     if (!show) return;
 
@@ -44,11 +45,13 @@ export default function TaskFormModal({
     }
   }, [task, categories, show]);
 
+  // Zpracování změn formuláře
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Odeslání formuláře (vytvoření nebo aktualizace úkolu)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -90,7 +93,7 @@ export default function TaskFormModal({
       alert(errorData.error || 'Chyba při ukládání úkolu.');
     }
   };
-
+// Mazání úkolu
   const handleDelete = async () => {
     if (!task) return;
     if (window.confirm('Opravdu chcete úkol smazat?')) {
@@ -107,7 +110,7 @@ export default function TaskFormModal({
   };
 
   if (!show) return null;
-
+// Vykreslení formuláře jako modálního okna
   return (
     <div className="modal d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
       <div className="modal-dialog">
@@ -119,6 +122,7 @@ export default function TaskFormModal({
             <button type="button" className="btn-close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
+            {/* Nazev ukolu */}
             <div className="mb-2">
               <label className="form-label">Název</label>
               <input
@@ -131,6 +135,7 @@ export default function TaskFormModal({
               {errors.title && <div className="invalid-feedback">{errors.title}</div>}
             </div>
 
+            {/* Popis ukolu */}
             <div className="mb-2">
               <label className="form-label">Popis</label>
               <textarea
@@ -142,6 +147,7 @@ export default function TaskFormModal({
               {errors.description && <div className="invalid-feedback">{errors.description}</div>}
             </div>
 
+            {/* Datum splnění */}
             <div className="mb-2">
               <label className="form-label">Datum splnění</label>
               <input
@@ -155,6 +161,7 @@ export default function TaskFormModal({
               {errors.dueDate && <div className="invalid-feedback">{errors.dueDate}</div>}
             </div>
 
+            {/* Priorita */}
             <div className="mb-2">
               <label className="form-label">Priorita</label>
               <select className="form-select" name="priority" value={formData.priority} onChange={handleChange}>
@@ -164,6 +171,7 @@ export default function TaskFormModal({
               </select>
             </div>
 
+            {/* Stav */}
             <div className="mb-2">
               <label className="form-label">Stav</label>
               <select className="form-select" name="status" value={formData.status} onChange={handleChange}>
@@ -172,6 +180,7 @@ export default function TaskFormModal({
               </select>
             </div>
 
+            {/* Kategorie */}
             <div className="mb-2">
               <label className="form-label">Kategorie</label>
               <select className="form-select" name="categoryId" value={formData.categoryId} onChange={handleChange}>
@@ -181,6 +190,7 @@ export default function TaskFormModal({
               </select>
             </div>
           </div>
+          {/* Tlačítka dole v modalu */}
           <div className="modal-footer">
             {task && (
               <button type="button" className="btn btn-outline-danger me-auto" onClick={handleDelete}>

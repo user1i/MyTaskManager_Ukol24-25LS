@@ -6,6 +6,7 @@ export default function CategoryFormModal({ show, onClose, category, onSave }) {
     color: '#999999'
   });
 
+// Při změně vybrané kategorie nastaví hodnoty do formuláře
   useEffect(() => {
     if (category) {
       setFormData({
@@ -20,31 +21,35 @@ export default function CategoryFormModal({ show, onClose, category, onSave }) {
     }
   }, [category]);
 
+  // Zpracování změn v polích formuláře
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Odeslání formuláře pro uložení nebo úpravu kategorie
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+// Validace délky názvu
     if (formData.name.trim().length < 2 || formData.name.trim().length > 30) {
       alert('Název musí mít 2–30 znaků.');
       return;
     }
-
+// Nastavení metody podle toho, jestli jde o novou nebo upravovanou kategorii
     const url = category
       ? `http://localhost:3001/categories/${category.id}`
       : 'http://localhost:3001/categories';
 
     const method = category ? 'PUT' : 'POST';
 
+    // Odeslání dat na server
     const response = await fetch(url, {
       method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     });
 
+     // Reakce na odpověď serveru
     if (response.ok) {
       const data = await response.json();
       onSave(data);
@@ -53,8 +58,9 @@ export default function CategoryFormModal({ show, onClose, category, onSave }) {
     }
   };
 
-  if (!show) return null;
+  if (!show) return null; // Pokud se modální okno nemá zobrazit, vrátí null
 
+  //zobrazení modálního formuláře
   return (
     <div className="modal d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
       <div className="modal-dialog">

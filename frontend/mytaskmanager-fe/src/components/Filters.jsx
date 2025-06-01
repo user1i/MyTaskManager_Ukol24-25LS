@@ -11,6 +11,7 @@ export default function Filters({
 }) {
   return (
     <div className="row mb-4">
+      {/* Výběr kategorie úkolu */}
       <div className="col-md-3">
         <label className="form-label">Kategorie</label>
         <select className="form-select" value={filterCategory} onChange={e => setFilterCategory(e.target.value)}>
@@ -20,6 +21,8 @@ export default function Filters({
           ))}
         </select>
       </div>
+
+      {/* Výběr stavu úkolu */}
       <div className="col-md-3">
         <label className="form-label">Stav</label>
         <select className="form-select" value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
@@ -28,6 +31,8 @@ export default function Filters({
           <option value="Hotovo">Hotovo</option>
         </select>
       </div>
+
+       {/* Výběr priority úkolu */}
       <div className="col-md-3">
         <label className="form-label">Priorita</label>
         <select className="form-select" value={filterPriority} onChange={e => setFilterPriority(e.target.value)}>
@@ -37,6 +42,8 @@ export default function Filters({
           <option value="Vysoká">Vysoká</option>
         </select>
       </div>
+
+      {/* Výběr časového období pro datum splnění */}
       <div className="col-md-3">
         <label className="form-label">Datum splnění</label>
         <select className="form-select" value={filterDate} onChange={e => setFilterDate(e.target.value)}>

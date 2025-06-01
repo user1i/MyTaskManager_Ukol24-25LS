@@ -1,12 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
-  const location = useLocation();
+  const location = useLocation(); 
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
+      <div className="container-fluid"> {/* Název aplikace vlevo, odkaz na úvodní stránku */}
         <Link className="navbar-brand" to="/">MyTaskManager</Link>
+
+        {/* Tlačítko pro zobrazení menu na menších obrazovkách */}
         <button
           className="navbar-toggler"
           type="button"
@@ -18,6 +20,8 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
+         {/* Navigační odkazy */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
